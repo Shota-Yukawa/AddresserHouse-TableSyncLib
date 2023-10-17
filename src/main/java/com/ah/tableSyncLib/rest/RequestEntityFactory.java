@@ -1,4 +1,4 @@
-package com.ah.tableSyncLib.rest;
+package com.ah.tablesynclib.rest;
 
 import java.net.URI;
 
@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Component;
 
-import com.ah.tableSyncLib.bean.TableSyncRequestBean;
+import com.ah.tablesynclib.bean.TableSyncRequestBean;
 
 @Component
 public class RequestEntityFactory {

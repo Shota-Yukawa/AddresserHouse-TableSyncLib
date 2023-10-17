@@ -6,10 +6,10 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.4</version>
+		<version>3.1.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ah</groupId>
+	<groupId>com.ah.tablesynclib</groupId>
 	<artifactId>tableSyncLib</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tableSyncLib</name>
@@ -18,8 +18,6 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-jpa</artifactId> 
-			</dependency> -->
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
@@ -41,22 +39,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

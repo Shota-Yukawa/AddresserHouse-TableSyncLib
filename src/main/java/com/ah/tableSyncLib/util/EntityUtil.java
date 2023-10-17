@@ -1,4 +1,4 @@
-package com.ah.tableSyncLib.util;
+package com.ah.tablesynclib.util;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

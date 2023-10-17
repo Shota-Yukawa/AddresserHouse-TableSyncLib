@@ -1,9 +1,9 @@
-package com.ah.tableSyncLib.rest;
+package com.ah.tablesynclib.rest;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import com.ah.tableSyncLib.util.EntityUtil;
+import com.ah.tablesynclib.util.EntityUtil;
 
 import lombok.Data;
 

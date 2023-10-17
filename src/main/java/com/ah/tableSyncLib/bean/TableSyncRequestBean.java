@@ -1,6 +1,6 @@
-package com.ah.tableSyncLib.bean;
+package com.ah.tablesynclib.bean;
 
-import com.ah.tableSyncLib.util.EntityUtil;
+import com.ah.tablesynclib.util.EntityUtil;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
