@@ -1,6 +1,5 @@
 package com.ah.tablesynclib.rest;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import com.ah.tablesynclib.util.EntityUtil;
@@ -9,7 +8,6 @@ import lombok.Data;
 
 @Component
 @Data
-@ConfigurationProperties(prefix = "tablesync")
 public class RequestEndpointProperties {
 
 	private String url;
