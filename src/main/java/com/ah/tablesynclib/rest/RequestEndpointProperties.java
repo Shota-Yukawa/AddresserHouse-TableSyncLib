@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import com.ah.tablesynclib.util.EntityUtil;
+import com.ah.commonlib.EntityUtil;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
