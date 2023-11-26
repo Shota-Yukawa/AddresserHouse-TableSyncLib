@@ -1,14 +1,20 @@
 package com.ah.tablesynclib.rest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import com.ah.tablesynclib.util.EntityUtil;
 
+import jakarta.annotation.PostConstruct;
 import lombok.Data;
 
 @Component
 @Data
 public class RequestEndpointProperties {
+	
+	@Autowired
+	Environment env;
 
 	private String url;
 
@@ -17,7 +23,12 @@ public class RequestEndpointProperties {
 	private final EntityUtil.methodEnum INSERT = EntityUtil.methodEnum.insert;
 	private final EntityUtil.methodEnum UPDATE = EntityUtil.methodEnum.update;
 	private final EntityUtil.methodEnum DELETE = EntityUtil.methodEnum.delete;
-
+	
+	@PostConstruct
+	public void init() {
+	//tablesynclib内のyamlからリクエスト先URLの取得
+	this.url = env.getProperty("tablesync.url");
+	}
 	/**
 	 * aparowner/insert の取得
 	 * 
