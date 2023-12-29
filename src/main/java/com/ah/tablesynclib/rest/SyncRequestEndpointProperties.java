@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Component
 @Data
-public class RequestEndpointProperties {
+public class SyncRequestEndpointProperties {
 	
 	@Autowired
 	Environment env;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import com.ah.tablesynclib.bean.TableSyncRequestBean;
 
 @Component
-public class RequestEntityFactory {
+public class SyncRequestEntityFactory {
 
 	/**
 	 * Post メソッドのRequestEntityの作成メソッド

@@ -11,10 +11,10 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class RequestService {
+public class SyncRequestService {
 
-	private final RequestEntityFactory entityFactory;
-	private final RequestEndpointProperties endpointProperties;
+	private final SyncRequestEntityFactory entityFactory;
+	private final SyncRequestEndpointProperties endpointProperties;
 
 	private final RestTemplate rest = new RestTemplate();
 
