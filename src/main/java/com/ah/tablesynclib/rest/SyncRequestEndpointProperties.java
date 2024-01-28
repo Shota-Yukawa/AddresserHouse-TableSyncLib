@@ -3,6 +3,7 @@ package com.ah.tablesynclib.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.ah.commonlib.EntityUtil;
 
@@ -16,9 +17,10 @@ public class SyncRequestEndpointProperties {
 	@Autowired
 	Environment env;
 
-	private String url;
+	//TODO リソパへの変更
+	private String url = "http://localhost:8080/table_sync";
 
-	private final String APARTROWNER = "/apartowner/";
+	private final String APARTROWNER = "apartowner";
 
 	private final EntityUtil.methodEnum INSERT = EntityUtil.methodEnum.insert;
 	private final EntityUtil.methodEnum UPDATE = EntityUtil.methodEnum.update;
@@ -27,7 +29,7 @@ public class SyncRequestEndpointProperties {
 	@PostConstruct
 	public void init() {
 	//tablesynclib内のyamlからリクエスト先URLの取得
-	this.url = env.getProperty("tablesync.url");
+//	this.url = env.getProperty("tablesync.url");
 	}
 	/**
 	 * aparowner/insert の取得
@@ -35,7 +37,10 @@ public class SyncRequestEndpointProperties {
 	 * @return
 	 */
 	public String getApartownerInsert() {
-		return url + APARTROWNER + INSERT;
+		return UriComponentsBuilder.fromHttpUrl(url)
+				.pathSegment(APARTROWNER, INSERT.toString())
+				.build()
+				.toUriString();
 	}
 
 	/**
@@ -44,16 +49,22 @@ public class SyncRequestEndpointProperties {
 	 * @return
 	 */
 	public String getApartownerUpdate() {
-		return url + APARTROWNER + UPDATE;
+		return UriComponentsBuilder.fromHttpUrl(url)
+				.pathSegment(APARTROWNER, UPDATE.toString())
+				.build()
+				.toUriString();
 	}
 
 	/**
-	 * aparowner/delete の取得
+	 * aparowner/delete/{id} の取得
 	 * 
 	 * @return
 	 */
-	public String getApartownerDelete() {
-		return url + APARTROWNER + DELETE;
+	public String getApartownerDelete(Integer id) {
+		return UriComponentsBuilder.fromHttpUrl(url)
+				.pathSegment(APARTROWNER, DELETE.toString(), id.toString())
+				.build()
+				.toUriString();
 	}
 
 }
