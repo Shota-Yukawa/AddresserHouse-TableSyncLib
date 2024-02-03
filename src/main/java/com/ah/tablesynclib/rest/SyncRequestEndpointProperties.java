@@ -1,7 +1,10 @@
 package com.ah.tablesynclib.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -13,12 +16,8 @@ import lombok.Data;
 @Component
 @Data
 public class SyncRequestEndpointProperties {
-	
-	@Autowired
-	Environment env;
 
-	//TODO リソパへの変更
-	private String url = "http://localhost:8080/table_sync";
+	private String url ;
 
 	private final String APARTROWNER = "apartowner";
 
@@ -28,8 +27,14 @@ public class SyncRequestEndpointProperties {
 	
 	@PostConstruct
 	public void init() {
-	//tablesynclib内のyamlからリクエスト先URLの取得
-//	this.url = env.getProperty("tablesync.url");
+		//tablesynclib内のpropertiesからリクエスト先URLの取得
+		try {
+			ClassPathResource resource = new ClassPathResource("tablesynclib.properties");
+			Properties properties = PropertiesLoaderUtils.loadProperties(resource);
+			this.url = properties != null ? properties.getProperty("tablesync.url") : null;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * aparowner/insert の取得
