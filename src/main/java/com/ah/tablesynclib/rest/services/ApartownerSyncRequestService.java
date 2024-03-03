@@ -1,4 +1,4 @@
-package com.ah.tablesynclib.rest;
+package com.ah.tablesynclib.rest.services;
 
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -6,12 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.ah.tablesynclib.bean.TableSyncRequestBean;
+import com.ah.tablesynclib.rest.SyncRequestEndpointProperties;
+import com.ah.tablesynclib.rest.SyncRequestEntityFactory;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class SyncRequestService {
+public class ApartownerSyncRequestService {
 
 	private final SyncRequestEntityFactory entityFactory;
 	private final SyncRequestEndpointProperties endpointProperties;
@@ -21,8 +23,6 @@ public class SyncRequestService {
 	private final String TALBENAME_APARTROWNERS = "apartowners";
 	private final String TALBENAME_APARTMENTS = "apartments";
 	
-	private final String TABLENAME_ADDRESSERRESIDENCES = "addresser_residences";
-
 	/**
 	 * [apartowner登録時] table syncサービスへapartownerテーブルの同期リクエストを送る。
 	 * @param body
