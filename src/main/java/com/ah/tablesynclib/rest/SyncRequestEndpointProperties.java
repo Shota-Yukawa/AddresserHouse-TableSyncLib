@@ -19,11 +19,10 @@ public class SyncRequestEndpointProperties {
 
 	private String url ;
 
-	private final String APARTROWNER = "apartowner";
 
-	private final EntityUtil.methodEnum INSERT = EntityUtil.methodEnum.insert;
-	private final EntityUtil.methodEnum UPDATE = EntityUtil.methodEnum.update;
-	private final EntityUtil.methodEnum DELETE = EntityUtil.methodEnum.delete;
+	private final String INSERT = EntityUtil.methodEnum.insert.toString();
+	private final String UPDATE = EntityUtil.methodEnum.update.toString();
+	private final String DELETE = EntityUtil.methodEnum.delete.toString();
 	
 	@PostConstruct
 	public void init() {
@@ -37,37 +36,34 @@ public class SyncRequestEndpointProperties {
 		}
 	}
 	/**
-	 * aparowner/insert の取得
-	 * 
+	 * {tableName}/insert のurl取得
 	 * @return
 	 */
-	public String getApartownerInsert() {
+	public String getTableSyncInsertUrl(String talbeName) {
 		return UriComponentsBuilder.fromHttpUrl(url)
-				.pathSegment(APARTROWNER, INSERT.toString())
+				.pathSegment(talbeName, INSERT)
 				.build()
 				.toUriString();
 	}
 
 	/**
-	 * aparowner/update の取得
-	 * 
+	 * {tableName}/update のurl取得
 	 * @return
 	 */
-	public String getApartownerUpdate() {
+	public String getTableSyncUpdateUrl(String talbeName) {
 		return UriComponentsBuilder.fromHttpUrl(url)
-				.pathSegment(APARTROWNER, UPDATE.toString())
+				.pathSegment(talbeName, UPDATE)
 				.build()
 				.toUriString();
 	}
 
 	/**
-	 * aparowner/delete/{id} の取得
-	 * 
+	 * {tableName}/delete/{id} のurl取得
 	 * @return
 	 */
-	public String getApartownerDelete(Integer id) {
+	public String getTableSyncDeleteUrl(String talbeName, Integer id) {
 		return UriComponentsBuilder.fromHttpUrl(url)
-				.pathSegment(APARTROWNER, DELETE.toString(), id.toString())
+				.pathSegment(talbeName, DELETE, id.toString())
 				.build()
 				.toUriString();
 	}
